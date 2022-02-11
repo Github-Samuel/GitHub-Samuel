@@ -2,7 +2,7 @@
 
 ## I'm a passionate programmer for FiveM!!
 
-- 🔭 Check out my Discord here [Please ;)][course]!
+- 🔭 Check out my Discord [here ;)][course]!
 - 🌱 I’m currently learning everything 🤣
 - 👯 I’m looking to collaborate with other content creators
 - 🥅 2022 Goals: Learn more about HTML & CSS
