@@ -8,7 +8,6 @@
 - 🥅 2022 Goals: Learn more about HTML & CSS
 - ⚡ Fun fact: My favourite genre of videogame is Roleplay
 
----
 
 ### Languages and Tools:
 
