@@ -26,6 +26,8 @@
 [![website](./img/instagram-light.svg)](https://instagram.com/codeSTACKr#gh-light-mode-only)
 [![website](./img/instagram-dark.svg)](https://instagram.com/codeSTACKr#gh-dark-mode-only)
 
+---
+
 ### Languages and Tools:
 
 [<img align="left" alt="Visual Studio Code" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" style="padding-right:10px;" />][webdevplaylist]
@@ -44,7 +46,20 @@
 
 <br />
 
+
 ---
+
+### 📺 Latest YouTube Videos
+
+<!-- YOUTUBE:START -->
+- [Japanese Restaurant Script for ESX](https://www.youtube.com/watch?v=HEkgxpCcNUc&t=77s)
+- [Italian Restaurant Script for ESX](https://www.youtube.com/watch?v=8_R2G_W5eXo&t=12s)
+<!-- YOUTUBE:END -->
+
+➡️ [more videos...](https://www.youtube.com/channel/UChRldWkBxIKv_SMixY7cCvA)
+
+---
+
 
 
 <details>
