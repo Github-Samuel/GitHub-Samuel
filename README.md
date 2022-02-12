@@ -1,5 +1,18 @@
 # Hey, I'm Samuel - aka [Samuel#0008] 👋 
 
+<div
+  <a href="https://github.com/GitHub-Samuel">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=GitHub-Samuel&show_icons=true&theme=github_dark&include_all_commits=true&count_private=true&show_icons=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=GitHub-Samuel&layout=compact&langs_count=7&theme=github_dark&show_icons=true"/>
+</div>
+
+<div>
+  <a href="https://instagram.com/joaquim_peixoto_" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+ 	<a href="https://twitch.tv/masterkillerft" target="_blank"><img src="https://img.shields.io/badge/Twitch-9146FF?style=for-the-badge&logo=twitch&logoColor=white" target="_blank"></a>
+  <a href = "mailto:geral@joaquimcerqueira.pt"><img src="https://img.shields.io/badge/-Email-%23333?style=for-the-badge&logo=email&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/joaquim-peixoto/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+</div>
+
 ## I'm a passionate programmer for FiveM!!
 
 - 🔭 Check out my Discord [here ;)][course]!
@@ -7,6 +20,9 @@
 - 👯 I’m looking to collaborate with other content creators
 - 🥅 2022 Goals: Learn more about HTML & CSS
 - ⚡ Fun fact: My favourite genre of videogame is Roleplay
+
+
+
 
 
 ### Languages and Tools:
@@ -37,18 +53,14 @@
 - [Italian Restaurant Script for ESX](https://www.youtube.com/watch?v=8_R2G_W5eXo&t=12s)
 <!-- YOUTUBE:END -->
 
-➡️ [more videos...](https://www.youtube.com/channel/UChRldWkBxIKv_SMixY7cCvA)
+➡️ [more videos...](https://www.youtube.com/channel/UChRldWkBxIKv_SMixY7cCvA)!
+
 
 ---
 
 
 
-<details>
-  <summary>:zap: GitHub Stats</summary>
-
-  <img align="left" alt="GitHub-Samuel's Stats" src="https://github-readme-stats.vercel.app/api?username=GitHub-Samuel&show_icons=true&hide_border=false&title_color=ff652f&icon_color=FFE400&bg_color=09131B&text_color=ffffff&border_color=0c1a25" />
-
-</details>
+![Snake animation](https://github.com/jhcpeixoto/jhcpeixoto/blob/output/github-contribution-grid-snake.svg)
 
 
 
