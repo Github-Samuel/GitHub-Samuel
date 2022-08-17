@@ -12,17 +12,6 @@
   <a href = "samnicol888@gmail.com"><img src="https://img.shields.io/badge/-Email-%23333?style=for-the-badge&logo=email&logoColor=white" target="_blank"></a>
 </div>
 
-## I'm a passionate programmer for FiveM!!
-
-- 🔭 Check out my Discord [here ;)][course]!
-- 🌱 I’m currently learning everything 🤣
-- 👯 I’m looking to collaborate with other content creators
-- 🥅 2022 Goals: Learn more about HTML & CSS
-- ⚡ Fun fact: My favourite genre of videogame is Roleplay
-
-
-
-
 
 ### Languages and Tools:
 
@@ -57,19 +46,5 @@
 
 ---
 
-
-
 ![Snake animation](https://github.com/jhcpeixoto/jhcpeixoto/blob/output/github-contribution-grid-snake.svg)
 
-
-
-[website]: https://samuels-development.dev
-[course]: https://discord.gg/Tu94MCDDEa
-[twitter]: https://twitter.com/L0ngSchl0ng
-[youtube]: hhttps://www.youtube.com/channel/UChRldWkBxIKv_SMixY7cCvA
-[instagram]: https://instagram.com/codeSTACKr
-[linkedin]: https://linkedin.com/in/codeSTACKr
-[webdevplaylist]: https://www.youtube.com/playlist?list=PLkwxH9e_vrAJ0WbEsFA9W3I1W-g_BTsbt
-[jsplaylist]: https://www.youtube.com/playlist?list=PLkwxH9e_vrALRJKu7wfXby3MKeflhTu6B
-[cssplaylist]: https://www.youtube.com/playlist?list=PLkwxH9e_vrALSdvZuEh6gqQdmDoDIoqz4
-[reactplaylist]: https://www.youtube.com/playlist?list=PLkwxH9e_vrAK4TdffpxKY3QGyHCpxFcQ0
