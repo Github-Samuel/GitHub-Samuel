@@ -1,0 +1,39 @@
+name: GitHub Profile 3D Contrib
+
+# Renders the contribution graph as an isometric SVG into profile-3d-contrib/
+# and commits it back. README.md embeds one of the generated variants.
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+# The job pushes the regenerated SVGs, so the default token needs write.
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: generate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: yoshi389111/github-profile-3d-contrib@v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      # A day with no contribution change regenerates identical SVGs, and
+      # `git commit` exits non-zero with nothing staged. Guarding it keeps the
+      # schedule green instead of failing on every quiet day.
+      - name: Commit and push
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A profile-3d-contrib
+          if git diff --staged --quiet; then
+            echo 'No change in the rendered graph, nothing to commit.'
+            exit 0
+          fi
+          git commit -m 'chore: regenerate 3d contribution graph'
+          git push
