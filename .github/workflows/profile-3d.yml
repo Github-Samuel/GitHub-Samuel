@@ -1,15 +1,19 @@
-name: GitHub Profile 3D Contrib
+name: GitHub Profile
 
-# Renders the contribution graph as an isometric SVG into profile-3d-contrib/
-# and commits it back. README.md embeds one of the generated variants.
+# Two things on one schedule, so the profile updates in a single commit:
+#   1. the contribution graph, rendered as an isometric SVG into profile-3d-contrib/
+#   2. the star/fork badges in README.md, totalled across the org and this account
 on:
   schedule:
     - cron: "0 5 * * *"
   workflow_dispatch:
 
-# The job pushes the regenerated SVGs, so the default token needs write.
+# The job pushes the regenerated SVGs and README, so the default token needs write.
 permissions:
   contents: write
+
+env:
+  ORG: Samuels-Development
 
 jobs:
   build:
@@ -23,6 +27,59 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
 
+      # The 3D action counts stars and forks with `ownerAffiliations: OWNER`, which
+      # is personally-owned repositories only, and never renders them anyway. These
+      # badges total the org alongside this account, which is where the majority is.
+      #
+      # Public repositories only: the figure is then verifiable by anyone reading it,
+      # and it does not disclose how many private repositories the org holds.
+      - name: Total stars and forks
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # --jq runs per page, so --paginate yields one TSV line per repository.
+          gh api "orgs/${ORG}/repos?per_page=100&type=public" --paginate \
+            --jq '.[] | [.stargazers_count, .forks_count] | @tsv' > repos.tsv
+          gh api "users/${{ github.repository_owner }}/repos?per_page=100&type=owner" --paginate \
+            --jq '.[] | [.stargazers_count, .forks_count] | @tsv' >> repos.tsv
+
+          # Seeded first: an empty repos.tsv makes awk print nothing, and under
+          # `set -u` the guard below would then abort on an unbound variable
+          # rather than reporting the real problem.
+          REPOS=0 STARS=0 FORKS=0
+          eval "$(awk -F'\t' '{r++; s+=$1; f+=$2} END {printf "REPOS=%d STARS=%d FORKS=%d", r, s, f}' repos.tsv)"
+
+          # A failed API call would total zero and quietly blank the badges.
+          if [ "$REPOS" -eq 0 ]; then
+            echo "::error::Counted 0 repositories, refusing to write badges."
+            exit 1
+          fi
+          echo "Counted ${REPOS} public repositories, ${STARS} stars, ${FORKS} forks."
+
+          python3 - "$REPOS" "$STARS" "$FORKS" <<'PY'
+          import re, sys
+          repos, stars, forks = sys.argv[1:4]
+          badge = 'https://img.shields.io/badge/{}-{}-{}?style=flat-square&labelColor=0d1117'
+          block = '\n'.join([
+              '<!-- STATS:START -->',
+              '![Stars](%s)' % badge.format('stars', stars, 'e3b341'),
+              '![Forks](%s)' % badge.format('forks', forks, '8957e5'),
+              '![Public repositories](%s)' % badge.format('public%20repos', repos, '1f6feb'),
+              '<!-- STATS:END -->',
+          ])
+          readme = open('README.md', encoding='utf-8').read()
+          patched = re.sub(
+              r'<!-- STATS:START -->.*?<!-- STATS:END -->',
+              lambda _: block, readme, flags=re.S)
+          if patched == readme and 'STATS:START' not in readme:
+              raise SystemExit('README.md has no STATS markers to fill.')
+          open('README.md', 'w', encoding='utf-8', newline='\n').write(patched)
+          PY
+
+          rm -f repos.tsv
+
       # A day with no contribution change regenerates identical SVGs, and
       # `git commit` exits non-zero with nothing staged. Guarding it keeps the
       # schedule green instead of failing on every quiet day.
@@ -30,10 +87,10 @@ jobs:
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A profile-3d-contrib
+          git add -A profile-3d-contrib README.md
           if git diff --staged --quiet; then
-            echo 'No change in the rendered graph, nothing to commit.'
+            echo 'Nothing changed, nothing to commit.'
             exit 0
           fi
-          git commit -m 'chore: regenerate 3d contribution graph'
+          git commit -m 'chore: refresh contribution graph and stats'
           git push

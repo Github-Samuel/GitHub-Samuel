@@ -2,4 +2,9 @@
 
 FiveM resource development &middot; [samueldev.shop](https://fivem.samueldev.shop) &middot; [docs](https://docs.samueldev.shop)
 
+<!-- STATS:START -->
+<!-- STATS:END -->
+
+Across [@Samuels-Development](https://github.com/Samuels-Development) and this account.
+
 [![3D contribution graph](./profile-3d-contrib/profile-night-view.svg)](https://github.com/Github-Samuel)
